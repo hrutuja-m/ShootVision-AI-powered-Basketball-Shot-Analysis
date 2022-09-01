@@ -1,0 +1,92 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<div class="result-container">
+    <div class="result-title">Analysis Result</div>
+    <div class="shot-container">
+        <div class="shot-counting">
+            <div class="image-description">
+                <div class="stat-name">Shot Counting</div>
+                <div class="underline"></div>
+            </div>
+            <div class="result-stat-container">
+                <div class="stat-item">
+                    <div class="statname-container">
+                        <div class="stat-name padding-right">Attempts</div>
+                        <div class="underline video-underline"></div>
+                    </div>
+                    <div class="stat-num" stat-day>{{ shooting_result.attempts }}</div>
+                </div>
+                <div class="stat-item">
+                    <div class="statname-container">
+                        <div class="stat-name padding-right">Miss</div>
+                        <div class="underline video-underline"></div>
+                    </div>
+                    <div class="stat-num" stat-message>{{ shooting_result.miss }}</div>
+                </div>
+                <div class="stat-item">
+                    <div class="statname-container">
+                        <div class="stat-name padding-right">Score</div>
+                        <div class="underline video-underline"></div>
+                    </div>
+                    <div class="stat-num" stat-call>{{ shooting_result.made }}</div>
+                </div>
+            </div>
+        </div>
+        <div class="shot-counting">
+            <div class="image-description">
+                <div class="stat-name">Pose Analysis (angle)</div>
+                <div class="underline"></div>
+            </div>
+            <div class="result-stat-container">
+                <div class="stat-item">
+                    <div class="statname-container">
+                        <div class="stat-name padding-right">Elbow</div>
+                        <div class="underline video-underline"></div>
+                    </div>
+                    <div class="stat-num" stat-day>{{ shooting_result.avg_elbow_angle}}°</div>
+                </div>
+                <div class="stat-item">
+                    <div class="statname-container">
+                        <div class="stat-name padding-right">Knee</div>
+                        <div class="underline video-underline"></div>
+                    </div>
+                    <div class="stat-num" stat-message>{{ shooting_result.avg_knee_angle }}°</div>
+                </div>
+                <div class="stat-item">
+                    <div class="statname-container">
+                        <div class="stat-name padding-right">Release</div>
+                        <div class="underline video-underline"></div>
+                    </div>
+                    <div class="stat-num" stat-call>{{ shooting_result.avg_release_angle }}°</div>
+                </div>
+                <div class="stat-item">
+                    <div class="statname-container">
+                        <div class="stat-name padding-right">Release Time</div>
+                        <div class="underline video-underline"></div>
+                    </div>
+                    <div class="stat-num" stat-call>{{ shooting_result.avg_ballInHand_time }} sec</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="image-container">
+            <div class="image-description">
+                <div class="stat-name">Tracing Result</div>
+                <div class="underline"></div>
+            </div>
+            <a href="/static/detections/basketball_trace.jpg" target="_new"><img
+                    src="/static/detections/basketball_trace.jpg" class="upload-image-thumb"></a>
+        </div>
+        <div class="image-container">
+            <div class="image-description">
+                <div class="stat-name">Trajectory Fitting</div>
+                <div class="underline trajectory-underline"></div>
+            </div>
+            <a href="/static/detections/trajectory_fitting.jpg" target="_new"><img
+                    src="/static/detections/trajectory_fitting.jpg" class="upload-image-thumb"></a>
+        </div>
+    </div>
+</div>
+{% endblock %}
